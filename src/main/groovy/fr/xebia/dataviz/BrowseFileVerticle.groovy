@@ -1,4 +1,5 @@
 package fr.xebia.dataviz
+
 import com.englishtown.vertx.elasticsearch.ElasticSearch
 import groovyx.net.http.HTTPBuilder
 import org.vertx.groovy.platform.Verticle
@@ -7,6 +8,7 @@ import org.vertx.java.core.eventbus.Message
 import org.vertx.java.core.file.impl.PathAdjuster
 import org.vertx.java.core.impl.VertxInternal
 import org.vertx.java.core.json.impl.Json
+
 /**
  * User: mounirboudraa
  * Date: 11/12/2013
@@ -64,7 +66,7 @@ class BrowseFileVerticle extends Verticle {
 
                     ]) { resp, json ->
                         json.find { it ->
-                            if (it.hasProperty('type') == true && it.type == "administrative") {
+                            if (it['type'] == "administrative") {
                                 city.put("latlng", [lat: it.lat, lng: it.lon])
                                 city.put("boundingbox", it.boundingbox)
                                 city.put("polygonpoints", it.polygonpoints)
@@ -103,7 +105,10 @@ class BrowseFileVerticle extends Verticle {
 
         Map message = [
                 "address": "eb.elasticsearch",
-                "transportAddresses": [["hostname": "host1", "port": 9300], ["hostname": "host2", "port": 9301]],
+                "transportAddresses": [
+                        ["hostname": "ec2-79-125-92-107.eu-west-1.compute.amazonaws.com", "port": 9200],
+                        ["hostname": "ec2-54-228-43-231.eu-west-1.compute.amazonaws.com", "port": 9200]
+                ],
                 "cluster_name": "my_cluster",
                 "client_transport_sniff": true,
                 "action": "index",
