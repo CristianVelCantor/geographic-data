@@ -1,5 +1,12 @@
 // Example JSON config file
 
 {
-  "foo": "bar"
+    "address": "",
+    "transportAddresses": [
+        {
+            "hostname": "",
+            "port": ""
+        }
+    ],
+    "cluster_name": ""
 }
