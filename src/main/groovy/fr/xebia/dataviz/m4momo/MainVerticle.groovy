@@ -34,7 +34,7 @@ class MainVerticle extends Verticle {
 
         inseeMap = [:] as ConcurrentHashMap
 
-        httpClient = vertx.createHttpClient(port: 80, host: TARGET, maxPoolSize: 1)
+        httpClient = vertx.createHttpClient(port: 80, host: TARGET, maxPoolSize: 9050)
 
         findOnDisk('insee.csv').splitEachLine(';') { fields ->
             String key = fields[3].padLeft(5, '0')

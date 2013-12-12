@@ -1,39 +1,40 @@
 {
 
-  // Java verticle
+    // Java verticle
 //  "main":"fr.xebia.dataviz.MainVerticle",
 
-  // In this example we also provide various other versions of the main verticle, you can uncomment this and
-  // play around:
+    // In this example we also provide various other versions of the main verticle, you can uncomment this and
+    // play around:
 
-  // Java *source* verticle
-  //"main":"JavaSourcePingVerticle.java",
+    // Java *source* verticle
+    //"main":"JavaSourcePingVerticle.java",
 
-  // Compiled Groovy verticle - note that they must be prefixed with 'groovy:' to distinguish them from compiled Java verticles
-  "main":"groovy:fr.xebia.dataviz.MainVerticle",
+    // Compiled Groovy verticle - note that they must be prefixed with 'groovy:' to distinguish them from compiled Java verticles
+//    "main": "groovy:fr.xebia.dataviz.m4momo.MainVerticle",
+    "main": "groovy:fr.xebia.dataviz.MainVerticle",
 
-  // Groovy *script* verticle
-  //"main": "GroovyVerticle.groovy",
+    // Groovy *script* verticle
+    //"main": "GroovyVerticle.groovy",
 
-  // Ruby verticle
-  //"main":"ping_verticle.rb",
+    // Ruby verticle
+    //"main":"ping_verticle.rb",
 
-  // JavaScript verticle
-  //"main": "ping_verticle.js",
+    // JavaScript verticle
+    //"main": "ping_verticle.js",
 
-  // Python verticle
-  //"main": "ping_verticle.py",
+    // Python verticle
+    //"main": "ping_verticle.py",
 
 
-  // If your module is going to be registered in the Vert.x module registry you will also need the following
-  // mandatory fields
-  "description":"Put description of your module here",
-  "licenses": ["The Apache Software License Version 2.0"],
-  "author": "Joe Bloggs",
+    // If your module is going to be registered in the Vert.x module registry you will also need the following
+    // mandatory fields
+    "description": "Put description of your module here",
+    "licenses": ["The Apache Software License Version 2.0"],
+    "author": "Joe Bloggs",
 
-  // Optional fields
-  "developers": ["Other Dev 1", "Other Dev 2"],
-  "keywords": ["gerbils", "cars", "cheese", "chocolate", "underpants", "herring"],
-  "homepage": "url to your project page"
+    // Optional fields
+    "developers": ["Other Dev 1", "Other Dev 2"],
+    "keywords": ["gerbils", "cars", "cheese", "chocolate", "underpants", "herring"],
+    "homepage": "url to your project page"
 
 }
