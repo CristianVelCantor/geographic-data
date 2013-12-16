@@ -1,4 +1,4 @@
-package org.eu.galaxie.vertx.mod.gwez.verticles
+package fr.xebia.dataviz.es
 
 import org.vertx.groovy.core.eventbus.Message
 import org.vertx.groovy.core.http.HttpClient

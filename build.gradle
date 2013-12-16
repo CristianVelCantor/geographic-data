@@ -48,6 +48,7 @@ install - install any jars produced to the local Maven repository (.m2)
 
  */
 
+
 dependencies {
     /*
     Add your module jar dependencies here
@@ -63,10 +64,18 @@ dependencies {
 
     compile 'org.codehaus.groovy.modules.http-builder:http-builder:0.6'
     compile 'com.englishtown:vertx-mod-elasticsearch:1.0.0-SNAPSHOT'
+    compile'org.geotools:gt-shapefile:11-SNAPSHOT'
 
 
+}
 
+//
+repositories {
+    mavenCentral()
 
+    maven {
+       url "http://repo.opengeo.org"
+    }
 
 }
 
