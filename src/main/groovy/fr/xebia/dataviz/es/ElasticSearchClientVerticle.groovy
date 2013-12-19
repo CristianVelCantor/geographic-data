@@ -1,4 +1,4 @@
-package org.eu.galaxie.vertx.mod.gwez.verticles
+package fr.xebia.dataviz.es
 
 import org.vertx.groovy.core.eventbus.Message
 import org.vertx.groovy.core.http.HttpClient
@@ -20,9 +20,9 @@ class ElasticSearchClientVerticle extends Verticle {
         esClient = vertx.createHttpClient(port: conf.port, host: conf.host)
 
         [
-                'gwez.elasticSearch.getObject': this.&getObject,
-                'gwez.elasticSearch.createObject': this.&createObject,
-                'gwez.elasticSearch.query': this.&doQuery
+                'fr.xebia.dataviz.es.getObject': this.&getObject,
+                'fr.xebia.dataviz.es.createObject': this.&createObject,
+                'fr.xebia.dataviz.es.query': this.&doQuery
         ].each { eventBusAddress, handler ->
             vertx.eventBus.registerHandler(eventBusAddress, handler)
         }
@@ -54,6 +54,7 @@ class ElasticSearchClientVerticle extends Verticle {
         def content = message.body.content
 
         def put = esClient.put("/$index/$entity/$id") { esResp ->
+        //def put = esClient.post("/$index/$entity/") { esResp ->
             def body = new Buffer()
             esResp.dataHandler { buffer -> body << buffer }
             esResp.endHandler {
@@ -64,7 +65,7 @@ class ElasticSearchClientVerticle extends Verticle {
             }
         }
         put.chunked = true
-        put << org.vertx.java.core.json.impl.Json.encode(content)
+        put << Json.encode(content)
         put.end()
     }
 

@@ -1,6 +1,5 @@
 package com.mycompany.myproject.test.unit;
 
-import com.mycompany.myproject.PingVerticle;
 import org.junit.Assert;
 import org.junit.Test;
 
