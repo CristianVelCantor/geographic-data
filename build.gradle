@@ -36,7 +36,7 @@ runMod - runs the module. This is similar to executing vertx runmod from the com
 runModIDEA - run the module from the project resources in IDEA. This allows you to run the module without building it
 first!
 
-runModEclipse - run the module from the project resources in Eclipse. This allows you to run the module without
+runModEclipse - run the module from the project resources n Eclipse. This allows you to run the module without
 building it  first!
 
 pullInDeps - pulls in all dependencies of the module into a nested module directory
@@ -64,7 +64,7 @@ dependencies {
 
     compile 'org.codehaus.groovy.modules.http-builder:http-builder:0.6'
     compile 'com.englishtown:vertx-mod-elasticsearch:1.0.0-SNAPSHOT'
-    compile'org.geotools:gt-shapefile:11-SNAPSHOT'
+    compile'org.geotools:gt-shapefile:10.2'
 
 
 }

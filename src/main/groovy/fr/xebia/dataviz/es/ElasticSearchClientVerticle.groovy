@@ -46,7 +46,7 @@ class ElasticSearchClientVerticle extends Verticle {
     }
 
     void createObject(Message message) {
-        println "received creation demand"
+        //println "received creation demand"
 
         def index = message.body.index
         def entity = message.body.entity
@@ -55,6 +55,9 @@ class ElasticSearchClientVerticle extends Verticle {
 
         def put = esClient.put("/$index/$entity/$id") { esResp ->
         //def put = esClient.post("/$index/$entity/") { esResp ->
+            if(esResp.statusCode!=200 && esResp.statusCode!=201 ){
+                println "Error indexing in es : ${esResp.statusCode} for ${id} : ${content.formattedName}"
+            }
             def body = new Buffer()
             esResp.dataHandler { buffer -> body << buffer }
             esResp.endHandler {
@@ -64,6 +67,9 @@ class ElasticSearchClientVerticle extends Verticle {
                 ])
             }
         }
+
+//        put.putHeader("Content-Encoding", "gzip")
+        put.putHeader("Accept-Encoding", "compress, gzip")
         put.chunked = true
         put << Json.encode(content)
         put.end()

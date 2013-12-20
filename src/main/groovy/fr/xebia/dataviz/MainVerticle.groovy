@@ -1,9 +1,7 @@
 package fr.xebia.dataviz
 
-import com.englishtown.vertx.elasticsearch.ElasticSearch
 import fr.xebia.dataviz.es.ElasticSearchClientVerticle
 import org.vertx.groovy.platform.Verticle
-
 /**
  * User: mounirboudraa
  * Date: 11/12/2013
@@ -12,9 +10,10 @@ import org.vertx.groovy.platform.Verticle
 class MainVerticle extends Verticle {
 
     def start() {
-        container.deployWorkerVerticle('groovy:' + ElasticSearchClientVerticle.class.name, container.config)
-        container.deployWorkerVerticle('groovy:' + BrowseFileVerticle.class.name, container.config, 1)
-        container.deployWorkerVerticle('groovy:' + GatherInfoVerticle.class.name, container.config, 1)
+        container.deployWorkerVerticle('groovy:' + ElasticSearchClientVerticle.class.name, container.config, 1)
+//        container.deployWorkerVerticle('groovy:' + BrowseFileVerticle.class.name, container.config, 1)
+//        container.deployWorkerVerticle('groovy:' + GatherInfoVerticle.class.name, container.config, 1)
+        container.deployWorkerVerticle('groovy:' + ShapeFileVerticle.class.name, container.config, 1)
 
     }
 
