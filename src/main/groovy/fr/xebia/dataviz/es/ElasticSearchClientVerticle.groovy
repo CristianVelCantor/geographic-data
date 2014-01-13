@@ -63,12 +63,12 @@ class ElasticSearchClientVerticle extends Verticle {
             esResp.endHandler {
                 message.reply([
                         status: esResp.statusCode,
-                        body: Json.decodeValue(body.toString(), Map.class)
+                        //body: Json.decodeValue(body.toString(), Map.class)
                 ])
             }
         }
 
-//        put.putHeader("Content-Encoding", "gzip")
+        //put.putHeader("Content-Encoding", "gzip")
         put.putHeader("Accept-Encoding", "compress, gzip")
         put.chunked = true
         put << Json.encode(content)

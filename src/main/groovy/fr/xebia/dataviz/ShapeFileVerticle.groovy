@@ -10,6 +10,7 @@ import org.opengis.feature.simple.SimpleFeature
 import org.vertx.groovy.platform.Verticle
 import org.vertx.java.core.file.impl.PathAdjuster
 import org.vertx.java.core.impl.VertxInternal
+
 /**
  * User: mounirboudraa
  * Date: 13/12/2013
@@ -122,6 +123,7 @@ class ShapeFileVerticle extends Verticle {
             }
         }
 
+
     }
 
 
@@ -137,9 +139,17 @@ class ShapeFileVerticle extends Verticle {
 
 
         vertx.eventBus.send("fr.xebia.dataviz.es.createObject", message) { response ->
-            println response
+            retry(response, message)
         }
 
+    }
+
+    private void retry(response, message) {
+        if (response.statusCode > 201) {
+            vertx.eventBus.send("fr.xebia.dataviz.es.createObject", message) { resp ->
+                retry(resp, message)
+            }
+        }
     }
 
     private File findOnDisk(String resourceRelativePath) {

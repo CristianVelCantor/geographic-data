@@ -71,11 +71,13 @@ dependencies {
 
 //
 repositories {
-    mavenCentral()
-
     maven {
        url "http://repo.opengeo.org"
+       url "http://download.java.net/maven/2"
+       url "http://download.osgeo.org/webdav/geotools/"
     }
+
+    mavenCentral()
 
 }
 
