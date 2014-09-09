@@ -38,8 +38,8 @@ class ElasticSearchClientVerticle extends Verticle {
             esResp.dataHandler { buffer -> body << buffer }
             esResp.endHandler {
                 message.reply([
-                        status: esResp.statusCode,
-                        body: Json.decodeValue(body.toString(), Map.class)
+                        statusCode: esResp.statusCode,
+//                        body: Json.decodeValue(body.toString(), Map.class)
                 ])
             }
         }
@@ -56,13 +56,13 @@ class ElasticSearchClientVerticle extends Verticle {
         def put = esClient.put("/$index/$entity/$id") { esResp ->
         //def put = esClient.post("/$index/$entity/") { esResp ->
             if(esResp.statusCode!=200 && esResp.statusCode!=201 ){
-                println "Error indexing in es : ${esResp.statusCode} for ${id} : ${content.formattedName}"
+//                println "Error indexing in es : ${esResp.statusCode} for ${id} : ${content.formattedName}"
             }
             def body = new Buffer()
             esResp.dataHandler { buffer -> body << buffer }
             esResp.endHandler {
                 message.reply([
-                        status: esResp.statusCode,
+                        statusCode: esResp.statusCode,
                         //body: Json.decodeValue(body.toString(), Map.class)
                 ])
             }
@@ -88,7 +88,7 @@ class ElasticSearchClientVerticle extends Verticle {
             esResp.endHandler {
                 println "response ES ended"
                 message.reply([
-                        status: esResp.statusCode,
+                        statusCode: esResp.statusCode,
                         body: Json.decodeValue(body.toString(), Map.class)
                 ])
             }

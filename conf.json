@@ -1,6 +1,8 @@
 // Example JSON config file
 
 {
-    "host": "ec2-79-125-92-107.eu-west-1.compute.amazonaws.com",
-    "port": 9200
+    "host": "ec2-54-220-141-75.eu-west-1.compute.amazonaws.com",
+    "cluster":"unibail-fid-preprod",
+    "port": 9300,
+    "startIndex":1
 }

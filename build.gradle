@@ -63,8 +63,10 @@ dependencies {
     provided "io.vertx:lang-groovy:$groovyLangModVersion@jar"
 
     compile 'org.codehaus.groovy.modules.http-builder:http-builder:0.6'
-    compile 'com.englishtown:vertx-mod-elasticsearch:1.0.0-SNAPSHOT'
+    compile 'com.englishtown:vertx-mod-elasticsearch:1.0.0'
     compile'org.geotools:gt-shapefile:10.2'
+    compile 'org.elasticsearch:elasticsearch-client-groovy:0.10.0'
+    compile 'org.elasticsearch:elasticsearch:0.90.10'
 
 
 }
