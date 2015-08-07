@@ -14,6 +14,10 @@ Cities from [villes_frances.csv][] are went through. For each city, its shape is
 
 ## Install
 
+### Dependencies
+
+You need a JDK 7, then add missing dependencies as specified below, then the normal build will download required dependencies.
+
 ### Missing dependencies
 
 In order to build successfully this project, you must install in you `.m2` directory an artifact that cannot be published on maven central due to licencing problem.
